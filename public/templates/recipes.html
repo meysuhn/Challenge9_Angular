@@ -39,8 +39,6 @@
   <!--{{recipes[1].description}} quick test to check that data is available. If you comment out the recipes controller though this won't work.-->
 <div ng-click="fullRecipe(recipe._id)" ng-click="recipeById()" ng-repeat="recipe in recipes" class="grid-100 row addHover">
 <!-- chosenCategory is the object/variable created on line 12 in the select box??-->
-<!--ng-repeat="recipe in recipes | orderBy: 'cookTime'" this built in filter works fine-->
-
 
   <a href="/#!/edit/{{recipe._id}}"> <!--route the user to the Recipe Detail screen when they click on a row. -->
     <div class="grid-70">

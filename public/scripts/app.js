@@ -28,7 +28,7 @@ angular.module("app", ['ngRoute'])
       $location.path(view);
   };
 
-// NOTE why start with scope? not just dataService?
+// NOTE clarify the difference between starting with scope or dataService.
 $scope.recipesByCategory = function(chosenCategory) {
             if (chosenCategory === "All Categories") {
                 dataService.recipes(function(response) {
@@ -68,8 +68,12 @@ $scope.recipesByCategory = function(chosenCategory) {
       $location.path(view);
   };
 
+  // NOTE this is a duplicate of the method in the above controller. Can they not be combined somehow?
+  dataService.categories(function(response){
+    $scope.categories = response.data;
+  });
+
 // if user clicks on edit page then get the data for that recipe and populate the fields
-    //NOTE NOTE NOTE if($location.$$path === '/edit/' + $routeParams.id) {
         dataService.recipeById($routeParams.id, function(response) {
             $scope.recipe = response.data;
             console.log(response.data);

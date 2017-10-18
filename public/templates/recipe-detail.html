@@ -26,9 +26,6 @@
   </div>
   <div class="grid-40">
     <p>
-      <!-- TODO Add a directive to this input element to bind its value
-        to the recipe model's `name` property. -->
-
       <input ng-model="recipe.name" type="text">
     </p>
   </div>
@@ -60,7 +57,7 @@
       <!-- TODO Add directives to this select element to bind its value
         to the recipe model's `category` property and to populate the list
         with the categories from the database. -->
-      <select>
+      <select ng-model="recipe.category" ng-options="category as category.name for category in categories">
         <option value="">All Categories</option>
       </select>
     </p>
@@ -124,7 +121,7 @@
         <!-- TODO Add directives to this select element to bind its value
           to the recipe ingredient model's `foodItem` property and to
           populate the list with the food items from the database. -->
-        <select ng-model="ingredient.foodItem">
+        <select ng-model="ingredient" ng-options="foodItem as ingredient.foodItem for foodItem in recipe.ingredients">
           <option value="">Select Item</option>
         </select>
       </p>
