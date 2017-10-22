@@ -51,13 +51,11 @@
     <div class="grid-30">
       <div class="flush-right">
         <p>
-          <!-- TODO Replace this anchor element's href attribute with a
-            directive so that you can route the user to the Recipe Detail
-            screen when they click on the 'Edit' link. -->
-          <a href="#"> <img src="images/edit.svg" height="12px"> Edit </a>
+        <!--route the user to the Recipe Detail screen when they click on the edit button. This identical functionality to when they click on a row (see above). -->
+          <a href="/#!/edit/{{recipe._id}}"> <img src="images/edit.svg" height="12px"> Edit </a>
           <!-- TODO Add a directive to this anchor element so that you can
             delete the recipe when the user clicks on the 'Delete' link. -->
-          <a class="no-action-link"> <img src="images/delete.svg" height="12px"> Delete </a>
+          <a class="no-action-link" ng-click="deleteRecipe(recipe, $index)"> <img src="images/delete.svg" height="12px"> Delete </a>
         </p>
       </div>
     </div>

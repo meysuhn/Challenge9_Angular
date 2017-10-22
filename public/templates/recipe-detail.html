@@ -11,7 +11,7 @@
     <div class="flush-right">
       <!-- TODO Add directives to both the "Save Recipe" and "Cancel"
         buttons in order to handle user clicks. -->
-      <button>Save Recipe</button>
+      <button ng-click="saveRecipe(recipe)">Save Recipe</button>
       <button ng-click="changeView2('/')" class="secondary">Cancel</button>
     </div>
   </div>
@@ -57,7 +57,8 @@
       <!-- TODO Add directives to this select element to bind its value
         to the recipe model's `category` property and to populate the list
         with the categories from the database. -->
-      <select ng-model="recipe.category" ng-options="category as category.name for category in categories">
+      <select ng-model="recipe.category" ng-options="category.name as category.name for category in categories">
+        <!-- 'category as category.name for category in categories'This is the way I had it that didn't work.-->
         <option value="">All Categories</option>
       </select>
     </p>
@@ -121,7 +122,8 @@
         <!-- TODO Add directives to this select element to bind its value
           to the recipe ingredient model's `foodItem` property and to
           populate the list with the food items from the database. -->
-        <select ng-model="ingredient" ng-options="foodItem as ingredient.foodItem for foodItem in recipe.ingredients">
+        <select ng-model="ingredient.foodItem" ng-options="foodItem.name as foodItem.name for foodItem in fooditems">
+          <!-- "category.name as category.name for category in categories" -->
           <option value="">Select Item</option>
         </select>
       </p>
@@ -139,18 +141,16 @@
     </div>
     <div class="grid-5 pad-top">
       <p class="flush-right">
-        <!-- TODO Add a directive to this anchor element so that you can
-          delete the recipe ingredient when the user clicks on the 'Delete' link. -->
-        <a class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
+        <!--delete the recipe ingredient when the user clicks on the 'Delete' link. -->
+        <a class="no-action-link" ng-click="deleteIngredient(recipe.ingredients, $index)"> <img src="images/delete.svg" height="12px"> </a>
       </p>
     </div>
   </div>
 
   <div class="prefix-20 grid-80 add-row">
     <p>
-      <!-- TODO Add a directive to this button in order to handle
-        when the user clicks to add a new recipe ingredient. -->
-      <button>+ Add Another Ingredient</button>
+     <!--fires the addStep method which adds an additional step-->
+      <button ng-click="addIngredient()">+ Add Another Ingredient</button>
     </p>
   </div>
 
@@ -179,18 +179,16 @@
     </div>
     <div class="grid-5 pad-top">
       <p class="flush-right">
-        <!-- TODO Add a directive to this anchor element so that you can
-          delete the recipe step when the user clicks on the 'Delete' link. -->
-        <a class="no-action-link"> <img src="images/delete.svg" height="12px"> </a>
+        <!--delete the recipe ingredient when the user clicks on the 'Delete' link. -->
+        <a class="no-action-link" ng-click="deleteStep(recipe.steps, $index)"> <img src="images/delete.svg" height="12px"> </a>
       </p>
     </div>
   </div>
 
   <div class="prefix-20 grid-80 add-row">
     <p>
-     <!-- TODO Add a directive to this button in order to handle
-       when the user clicks to add a new recipe step. -->
-     <button>+ Add Another Step</button>
+     <!--fires the addStep method which adds an additional step-->
+     <button ng-click="addStep()">+ Add Another Step</button>
     </p>
   </div>
 
