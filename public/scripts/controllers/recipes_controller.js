@@ -27,42 +27,26 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   };
 
 // NOTE clarify the difference between starting with scope or dataService.
+// both $scopes in the if else must return data as 'recipes' to the HTML in order for the ng-repeat to work.
 $scope.recipesByCategory = function(chosenCategory) {
-            if (chosenCategory === "All Categories") {
+            if (chosenCategory === null) { // NOTE This doesn't seem like good practice.
                 dataService.recipes(function(response) {
                 $scope.recipes = response.data;
                 });
             } else {
                 dataService.recipesByCategory(chosenCategory, function(response){
-                  console.log(response.data);
-                  console.log("fired");
-                  $scope.recipes = response.data;
+                $scope.recipes = response.data;
                 });
             }
         };
-// both $scopes in the if else must return data as 'recipes' to the HTML in order for the ng-repeat to work.
 
 
 $scope.deleteRecipe = function(recipe, $index) {
+  console.log(recipe);
   dataService.deleteRecipe(recipe);
   $scope.recipes.splice($index, 1); //recipes here is the recipes left in the scope from recipesByCategory above
+      // $scope.recipes.splice($index, 1) by itself will remove the recipe without going through the service. But the action won't persist. Changing screens (without a refresh) will bring the recipe back.
 };
 
-///////////////////////////////////////////////////////////////////////////////////////////
-// Small test functions. Delete later.
-  $scope.learningNgChange=function(chosenCategory){
-    console.log("HTML logging" + chosenCategory.name);
-  };
-
-// Small test functions. Delete later.
-  $scope.helloWorld=function(){
-    console.log("hello hello");
-  };
-
-  // This test gets the id of the clicked recipe.
-  $scope.fullRecipe=function(recipeID){
-    console.log(recipeID);
-  };
-  ///////////////////////////////////////////////////////////////////////////////////////////
 
 }); // End of RecipesController

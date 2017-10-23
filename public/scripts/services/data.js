@@ -37,19 +37,23 @@ angular.module('app') // the second param of [] is not needed here as we're not 
     .then(callback);
   };
 
+  // POST /api/recipes - Adds a recipe.
+  this.addNewRecipe = function (recipe) {
+    //console.log("The " + recipe.name + " recipe has been saved!");
+    $http.post('/api/recipes/', recipe); // you have to pass in new data. Try logging that out first
+  };
 
   // PUT /api/recipes/{id} - Updates the recipe for the specified ID.
-   // I'm imagining that this is responsible for updating a recipe when an ingredient has been added AND when one has been deleted?
-
-  // POST /api/recipes - Adds a recipe.
-  this.saveRecipe = function (recipe) {
+  this.updateRecipe = function (recipe) {
     console.log("The " + recipe.name + " recipe has been saved!");
-    //other logic
+    $http.put('/api/recipes/' + recipe._id, recipe) // you have to pass in new data. Try logging that out first
+    .then(); // NOTE this seems unneccesary
   };
 
   // DELETE /api/recipes/{id} - Deletes the recipe for the specified ID.
-  this.deleteRecipe = function(recipe) {
-    console.log(recipe);
-    //other logic
+  this.deleteRecipe = function(recipe, callback) { //NOTE at present the callback actually does nothing. It's not wired to anything.
+    console.log(recipe._id);
+    $http.delete('/api/recipes/' + recipe._id)
+    .then(callback);
   };
 });
