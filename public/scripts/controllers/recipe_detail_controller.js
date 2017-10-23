@@ -12,17 +12,17 @@ angular.module('app') // the second param of [] is not needed here as we're not 
     $scope.categories = response.data;
   });
 
-// if user clicks on edit page then get the data for that recipe and populate the fields
-if($location.$$path === '/edit/' + $routeParams.id) { // an attempt to get recipe data is only made if url is /edit, not /add
-  // Two $$ are needed above. NOTE Not sure why?. If only one is used then no recipe call is made.
-  dataService.recipeById($routeParams.id, function(response) {
-      $scope.recipe = response.data;
-      console.log(response.data);
-  });
-}
+  // if user clicks on edit page then get the data for that recipe and populate the fields
+  if($location.$$path === '/edit/' + $routeParams.id) { // an attempt to get recipe data is only made if url is /edit, not /add
+    // Two $$ are needed above. NOTE Not sure why?. If only one is used then no recipe call is made.
+    dataService.recipeById($routeParams.id, function(response) {
+        $scope.recipe = response.data;
+        console.log(response.data);
+    });
+  }
 
-// call the fooditems method on the dataservice service
-// Make the response data available to the HTML template, as an object called 'fooditems' via the $scope.
+  // call the fooditems method on the dataservice service
+  // Make the response data available to the HTML template, as an object called 'fooditems' via the $scope.
   dataService.fooditems(function(response){
     $scope.fooditems = response.data;
   });
@@ -30,18 +30,15 @@ if($location.$$path === '/edit/' + $routeParams.id) { // an attempt to get recip
   //////////////////////////////////////////////////////
   // NOTE Could these be combined somehow?
 
-  //NOTE play with this for deleting items
   $scope.deleteIngredient = function(recipe, $index) {
-    dataService.deleteRecipe(recipe);
-    $scope.recipe.ingredients.splice($index, 1);
-    //TODO $scope.recipe I think needs to refer to recipe on line 17 above, as that is what holds the recipe data in the scope
+    //dataService.deleteRecipe(recipe); // NOTE This line of code utilises the service, which causes a console error. Still to resolve.
+    $scope.recipe.ingredients.splice($index, 1); // $scope.recipe refers to the recipe data in the scope
+    console.log(recipe); // NOTE This shows the updated object (with items successfully deleted, thus code two lines up not necessary.)
   };
 
-  //NOTE play with this for deleting items
   $scope.deleteStep = function(recipe, $index) {
-    dataService.deleteRecipe(recipe);
-    $scope.recipe.steps.splice($index, 1);
-    //TODO $scope.recipe I think needs to refer to recipe on line 17 above, as that is what holds the recipe data in the scope
+    //dataService.deleteRecipe(recipe); // NOTE This line of code utilises the service, which causes a console error. Still to resolve.
+    $scope.recipe.steps.splice($index, 1); // $scope.recipe refers to the recipe data in the scope
   };
   //////////////////////////////////////////////////////
 

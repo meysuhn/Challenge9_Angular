@@ -15,7 +15,6 @@
   </div>
 </div>
 <div class="clear"></div>
-
 <!--only displays when there are no recipes to display. -->
   <!--truthy! Could also have, for example, "recipes.length > 0"-->
 <div ng-hide="recipes[0]" class="grid-100 row">
@@ -26,7 +25,6 @@
 
 <!--RECIPES START HERE-->
 <!-- Repeats for each recipe to display. Only displays when there are recipes to display. -->
-  <!--{{recipes[1].description}} quick test to check that data is available. If you comment out the recipes controller though this won't work.-->
 <div ng-click="recipeById()" ng-repeat="recipe in recipes" class="grid-100 row addHover">
 
   <a href="/#!/edit/{{recipe._id}}"> <!--route the user to the Recipe Detail screen when they click on a row. -->

@@ -2,8 +2,6 @@
 
 angular.module('app') // the second param of [] is not needed here as we're not creating a new module, merely attaching to app.js
 
-// Services allow you to create a reusable set of functions and values that can be passed across the application.
-// Methods inside the service are available to any controller that declares the service as a dependency
 .service('dataService', function($http){
 
   // GET /api/recipes - Gets all of the recipes.
@@ -12,7 +10,6 @@ angular.module('app') // the second param of [] is not needed here as we're not 
     $http.get('/api/recipes')
     .then(callback);
   };
-
 
   // GET /api/categories - Gets all of the categories.
   this.categories = function(callback){
@@ -26,11 +23,12 @@ angular.module('app') // the second param of [] is not needed here as we're not 
     .then(callback);
   };
 
+  // GET all the recipes by a certain category.
   this.recipesByCategory = function(chosenCategory, callback){
     $http.get('/api/recipes?category='+ chosenCategory.name) // pass in the key value to the api
     .then(callback);
-};
-  // NOTE This below never worked and could be a total mess.
+  };
+
   // GET /api/recipes/{id} - Gets the recipe for the specified ID.
   this.recipeById = function(id, callback) {
     $http.get('/api/recipes/' + id)
@@ -39,7 +37,7 @@ angular.module('app') // the second param of [] is not needed here as we're not 
 
   // POST /api/recipes - Adds a recipe.
   this.addNewRecipe = function (recipe) {
-    //console.log("The " + recipe.name + " recipe has been saved!");
+    console.log(recipe);
     $http.post('/api/recipes/', recipe); // you have to pass in new data. Try logging that out first
   };
 
@@ -51,9 +49,8 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   };
 
   // DELETE /api/recipes/{id} - Deletes the recipe for the specified ID.
-  this.deleteRecipe = function(recipe, callback) { //NOTE at present the callback actually does nothing. It's not wired to anything.
+  this.deleteRecipe = function(recipe) {
     console.log(recipe._id);
-    $http.delete('/api/recipes/' + recipe._id)
-    .then(callback);
+    $http.delete('/api/recipes/' + recipe._id);
   };
 });

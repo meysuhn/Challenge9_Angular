@@ -6,8 +6,6 @@
   </div>
   <div class="grid-50">
     <div class="flush-right">
-      <!-- TODO Add directives to both the "Save Recipe" and "Cancel"
-        buttons in order to handle user clicks. -->
       <button ng-click="saveRecipe(recipe)">Save Recipe</button>
       <button ng-click="changeView2('/')" class="secondary">Cancel</button>
     </div>
@@ -51,9 +49,7 @@
   </div>
   <div class="grid-30">
     <p>
-      <!-- TODO Add directives to this select element to bind its value
-        to the recipe model's `category` property and to populate the list
-        with the categories from the database. -->
+      <!--populate the list with the categories from the database. -->
       <select ng-model="recipe.category" ng-options="category.name as category.name for category in categories">
         <!-- 'category as category.name for category in categories'This is the way I had it that didn't work.-->
         <option value="">All Categories</option>
@@ -116,11 +112,8 @@
   <div ng-repeat="ingredient in recipe.ingredients" class="ingredient-row">
     <div class="prefix-20 grid-30">
       <p>
-        <!-- TODO Add directives to this select element to bind its value
-          to the recipe ingredient model's `foodItem` property and to
-          populate the list with the food items from the database. -->
+        <!--populate the list with the food items from the database. -->
         <select ng-model="ingredient.foodItem" ng-options="foodItem.name as foodItem.name for foodItem in fooditems">
-          <!-- "category.name as category.name for category in categories" -->
           <option value="">Select Item</option>
         </select>
       </p>
