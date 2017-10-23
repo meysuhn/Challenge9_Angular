@@ -2,14 +2,14 @@
 
 #### Open a Command Prompt (on Windows) or Terminal (on Mac OS X and Linux) instance and browse to the root project folder and run the following commands:
 
-`npm install` #### Install dependencies
+##### Install dependencies
+`npm install`
 
-
-#### Build the database
+##### Build the database
 `npm run-script db`
 
-#### Run the application
+##### Run the application
 `npm start`
 
-#### View the application
+##### View the application
 Open your web browser and browse to http://localhost:5000/
