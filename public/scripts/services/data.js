@@ -36,9 +36,10 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   };
 
   // POST /api/recipes - Adds a recipe.
-  this.addNewRecipe = function (recipe) {
+  this.addNewRecipe = function (recipe, callback) {
     console.log(recipe);
-    $http.post('/api/recipes/', recipe); // you have to pass in new data. Try logging that out first
+    $http.post('/api/recipes/', recipe)
+    .then(callback);
   };
 
   // PUT /api/recipes/{id} - Updates the recipe for the specified ID.

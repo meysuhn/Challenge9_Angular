@@ -43,5 +43,4 @@ angular.module('app') // the second param of [] is not needed here as we're not 
         // NOTE $scope.recipes.splice($index, 1) by itself will remove the recipe without going through the service. But the action won't persist. Changing screens (without a refresh) will bring the recipe back.
   };
 
-
 }); // End of RecipesController

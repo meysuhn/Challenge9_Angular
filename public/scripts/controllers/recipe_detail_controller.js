@@ -62,12 +62,13 @@ angular.module('app') // the second param of [] is not needed here as we're not 
     if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
       console.log("if fired");
       dataService.updateRecipe(recipe);
-      $location.path('/'); // send user back to "Recipes" screen after saving.
     } else {
       console.log("else fired");
-      dataService.addNewRecipe(recipe);
-      $location.path('/'); // send user back to "Recipes" screen after saving.
+      dataService.addNewRecipe(recipe, function(response) {
+        $scope.recipe = response.data;
+      });
     }
+    $location.path('/'); // send user back to "Recipes" screen after saving.
   };
 
 
