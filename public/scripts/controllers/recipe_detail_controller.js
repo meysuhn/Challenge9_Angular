@@ -57,19 +57,36 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   //////////////////////////////////////////////////////
 
 
-  $scope.saveRecipe = function(recipe) {
-    console.log(recipe);
-    if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
-      console.log("if fired");
-      dataService.updateRecipe(recipe);
-    } else {
-      console.log("else fired");
-      dataService.addNewRecipe(recipe, function(response) {
-        $scope.recipe = response.data;
-      });
-    }
-    $location.path('/'); // send user back to "Recipes" screen after saving.
-  };
+  // $scope.saveRecipe = function(recipe) {
+  //   console.log(recipe);
+  //   if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
+  //     console.log("if fired");
+  //     dataService.updateRecipe(recipe);
+  //   } else {
+  //     console.log("else fired");
+  //     dataService.addNewRecipe(recipe, function(response) {
+  //       $scope.recipe = response.data;
+  //     });
+  //   }
+  //   $location.path('/'); // send user back to "Recipes" screen after saving.
+  // };
+
+  // controller
+$scope.saveRecipe = function(recipe) {
+  if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
+    console.log("if fired");
+    dataService.updateRecipe(recipe).then(function(response) {
+      $scope.recipe = response.data;
+	  $location.path('/');
+    }).catch(err => console.log(err));
+  } else {
+    console.log("else fired");
+    dataService.addNewRecipe(recipe).then(function(response) {
+      $scope.recipe = response.data;
+	  $location.path('/');
+    }).catch(err => console.log(err));
+  }
+};
 
 
 

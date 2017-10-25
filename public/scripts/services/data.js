@@ -36,17 +36,25 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   };
 
   // POST /api/recipes - Adds a recipe.
-  this.addNewRecipe = function (recipe, callback) {
-    console.log(recipe);
-    $http.post('/api/recipes/', recipe)
-    .then(callback);
+  // this.addNewRecipe = function (recipe, callback) {
+  //   console.log(recipe);
+  //   $http.post('/api/recipes/', recipe)
+  //   .then(callback);
+  // };
+
+  this.addNewRecipe = function (recipe) {
+    return $http.post('/api/recipes/', recipe);
   };
 
   // PUT /api/recipes/{id} - Updates the recipe for the specified ID.
+  // this.updateRecipe = function (recipe) {
+  //   console.log("The " + recipe.name + " recipe has been saved!");
+  //   $http.put('/api/recipes/' + recipe._id, recipe) // you have to pass in new data. Try logging that out first
+  //   .then(); // NOTE this is not unnecessary!
+  // };
+
   this.updateRecipe = function (recipe) {
-    console.log("The " + recipe.name + " recipe has been saved!");
-    $http.put('/api/recipes/' + recipe._id, recipe) // you have to pass in new data. Try logging that out first
-    .then(); // NOTE this seems unneccesary
+    return $http.put('/api/recipes/' + recipe._id, recipe);
   };
 
   // DELETE /api/recipes/{id} - Deletes the recipe for the specified ID.
