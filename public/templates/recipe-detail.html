@@ -1,8 +1,8 @@
 <div class="grid-100 row controls">
   <div class="grid-50">
     <!-- Display the recipe name when editing a recipe. When adding a recipe, display the static text 'Add New Recipe'.-->
-    <h2>{{recipe.name}}</h2> <!--NOTE this shows as an empty binding in html if recipe not present. Unable to remove with !recipe. Is it OK to leave as it is? -->
-    <h2 ng-hide="recipe = recipe">Add New Recipe</h2> <!--If recipe does not exist in the scope (is not truthy) then hide add new recipe.-->
+    <h2>{{recipe.name}}</h2>
+    <h2 ng-hide="recipe._id = false">Add New Recipe</h2> <!--If recipe does not exist in the scope (is not truthy) then hide add new recipe.-->
   </div>
   <div class="grid-50">
     <div class="flush-right">
