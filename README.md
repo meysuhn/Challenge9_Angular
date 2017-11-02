@@ -1,9 +1,9 @@
-# FullStack Tech Degree Project 9 - Single Page App in AngularJS
+# FullStack Tech Degree Project 9
+## Single Page App in AngularJS
 
-# Angular JS, Node, Express, JavaScript, HTML5, CSS3
+## Angular JS, Node, Express, JavaScript, HTML5, CSS3
 
-
-## Getting Started
+### Getting Started
 
 #### Open a Command Prompt (on Windows) or Terminal (on Mac OS X and Linux) instance and browse to the root project folder and run the following commands:
 
