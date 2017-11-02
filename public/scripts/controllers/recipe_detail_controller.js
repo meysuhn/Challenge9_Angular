@@ -60,18 +60,29 @@ angular.module('app') // the second param of [] is not needed here as we're not 
 
 
 // Save Recipe function for both updating a receipe and adding a new one.
+  // $scope.saveRecipe = function(recipe) {
+  //   console.log(recipe);
+  //   if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
+  //     console.log("if fired");
+  //     dataService.updateRecipe(recipe);
+  //   } else {
+  //     console.log("else fired");
+  //     dataService.addNewRecipe(recipe, function(response) {
+  //       $scope.recipe = response.data;
+  //     });
+  //   }
+  //   $location.path('/'); // send user back to "Recipes" screen after saving.
+  // };
+
   $scope.saveRecipe = function(recipe) {
-    console.log(recipe);
-    if (recipe._id) { // if the recipe has a ._id (i.e. if you're updating an existing recipe)
-      console.log("if fired");
-      dataService.updateRecipe(recipe);
-    } else {
-      console.log("else fired");
-      dataService.addNewRecipe(recipe, function(response) {
-        $scope.recipe = response.data;
-      });
-    }
-    $location.path('/'); // send user back to "Recipes" screen after saving.
-  };
+  if (recipe._id) { // if the recipe has a ._id it's an update, if not it's a new recipe.
+    dataService.updateRecipe(recipe);
+  } else {
+    dataService.addNewRecipe(recipe, function(response) {
+      $scope.recipe = response.data;
+    });
+  }
+  $location.path('/');
+};
 
 }); // End of RecipeDetailController
