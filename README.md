@@ -18,7 +18,6 @@ Open your web browser and browse to http://localhost:5000/
 
 ```Javascript
   $scope.saveRecipe = function(recipe) {
-    console.log(recipe);
     if (recipe._id) { // if the recipe has a ._id it's an update, if not it's a new recipe.
       dataService.updateRecipe(recipe);
     } else {
