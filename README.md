@@ -1,7 +1,7 @@
-# FullStack Tech Degree Project 9 - Single Page App in AngularJS
+# FullStack Tech Degree Project 9 - Single Page App in AngularJS
 
 # Angular JS, Node, Express, JavaScript, HTML5, CSS3
-------------------------------------------------------------------
+
 
 ## Getting Started
 
