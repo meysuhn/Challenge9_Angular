@@ -16,6 +16,21 @@ Open your web browser and browse to http://localhost:5000/
 
 ![screenshot](https://user-images.githubusercontent.com/15713718/32322657-2eb824b6-bfbd-11e7-8f47-74a64d1c57d0.png)
 
+```Javascript
+  $scope.saveRecipe = function(recipe) {
+    console.log(recipe);
+    if (recipe._id) { // if the recipe has a ._id it's an update, if not it's a new recipe.
+      dataService.updateRecipe(recipe);
+    } else {
+      dataService.addNewRecipe(recipe, function(response) {
+        $scope.recipe = response.data;
+      });
+    }
+    $location.path('/'); 
+  };
+
+```
+
 ## Lessons Learnt
 
 // Controllers are the glue that hold Anglular applications together.
