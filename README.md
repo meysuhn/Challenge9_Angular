@@ -14,7 +14,7 @@
 ##### View the application
 Open your web browser and browse to http://localhost:5000/
 
-
+![screenshot](https://user-images.githubusercontent.com/15713718/32322657-2eb824b6-bfbd-11e7-8f47-74a64d1c57d0.png)
 
 ## Lessons Learnt
 
