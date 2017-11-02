@@ -1,14 +1,14 @@
 # Single Page App in AngularJS 
 ## FullStack Tech Degree Project 9
 
-### Angular JS, Node, Express, JavaScript
+### AngularJS, Node, Express, JavaScript
 
 #### Getting Started
 
-##### Open a Command Prompt (on Windows) or Terminal (on Mac OS X and Linux) instance and browse to the root project folder and run the following commands:
+Open a Command Prompt (on Windows) or Terminal (on Mac OS X and Linux) instance and browse to the root project folder and run the following commands:
 
 ##### Install dependencies
-`npm install`
+`npm install` Install dependencies
 
 ##### Build the database
 `npm run-script db`
@@ -35,4 +35,4 @@ Open your web browser and browse to http://localhost:5000/
 
 ```
 ### By Chris Mason
-#### 31st October 2017
+31st October 2017
