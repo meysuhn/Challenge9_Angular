@@ -20,6 +20,33 @@ Open your web browser and browse to http://localhost:5000/
 
 // Controllers are the glue that hold Anglular applications together.
   // It seems like Controllers are the link between the API/Services and the UI (HTML). They talk via the controller.
+  // Controllers control the data of Angular applications
+  // They are regular JS objects.
+  // Angular apps are 'controlled' by controllers.
+  // The controller allows us to establish data-binding between the model (the data) and the view (html)
+  // Scope glues our controller and template together into a dynamic view.
+  // Multiple controllers can use a service so long as they define the service as a dependency.
+    // Any methods declared in the service are available to any controller that declares the service as a dependency.
 
 // Services allow you to create a reusable set of functions and values that can be passed across the application.
   // Methods inside the service are available to any controller that declares the service as a dependency
+  // A Service is a function or object that is available for, and limited to, your AngularJS application
+  // There are ~30 built in services. Custom services can be created too.
+  // Services are good for saving, deleting and editing data.
+
+// Directives
+  // Angular directives are extended HTML attributes with the prefix
+  // the 'ng-app' directive in the HTML initialises an Angular application
+    //  It bootsraps the new app, (e.g. ng-app="app">) here called app, into the index.html file.
+
+// Routes
+  // To navigate to different pages in an application but to keep it single page with no reloading you can use the ngRoute module
+  // ngRoute module routes your application to different pages without reloading the entire application.
+
+// Bindings
+  // {{ double curly brackets represents a binding in Angular }}
+  // The binding tells angular that it should evaluate an expression & insert the result into the DOM in place of the binding.
+
+// When an angularJS directive is defined camelCase must be used. But when using it in the view (html) kebab-case needs to be used.
+ // HTML attributes are not case sensitive, meaning that "someName" and "somename" is the same attribute. So the best style is to use "kebab-case" notation to separate words in attribute name. That's why we use "attribute-name" syntax for HTML attributes and tag names.
+ // see https://stackoverflow.com/questions/33460274/angularjs-directive-naming-conventions

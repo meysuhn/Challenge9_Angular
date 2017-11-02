@@ -1,8 +1,10 @@
 <div class="grid-100 row controls">
   <div class="grid-50">
-    <!-- Display the recipe name when editing a recipe. When adding a recipe, display the static text 'Add New Recipe'.-->
-    <h2>{{recipe.name}}</h2>
-    <h2 ng-hide="recipe._id = false">Add New Recipe</h2> <!--If recipe does not exist in the scope (is not truthy) then hide add new recipe.-->
+
+    <h2 ng-if="!recipe.name">Add New Recipe</h2>
+    <h2 ng-if="recipe.name">{{recipe.name}}</h2>
+<!--if it has a recipe name show that else show add a new recipe. When you type a new recipe the add a recipe text is replaced
+ with the recipe name for example-->
   </div>
   <div class="grid-50">
     <div class="flush-right">
