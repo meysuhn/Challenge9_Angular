@@ -1,3 +1,4 @@
+(function() { // Wrap all of your JavaScript application, controller, and services code in immediately invoked functions in order to prevent from polluting the global namespace.
 'use strict';
 
 angular.module('app') // the second param of [] is not needed here as we're not creating a new module, merely attaching to app.js
@@ -44,3 +45,5 @@ angular.module('app') // the second param of [] is not needed here as we're not 
   };
 
 }); // End of RecipesController
+
+})(); // end of IIFE
